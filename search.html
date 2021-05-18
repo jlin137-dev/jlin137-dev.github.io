@@ -55,9 +55,9 @@
         </div>
     </nav><script>
     const urlParams = new URLSearchParams(window.location.search);
-    const query = urlParams.get("query");
-    document.getElementById("search").setAttribute("value",query);
-</script>
+    const querystring = urlParams.get("query");
+    document.getElementById("search").setAttribute("value",querystring);
+</script><div id="MyClockDisplay" class="clock" onload="showTime()"></div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/script.min.js"></script>
