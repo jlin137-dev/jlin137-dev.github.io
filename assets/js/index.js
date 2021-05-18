@@ -47,5 +47,12 @@ function showTime(){
     setTimeout(showTime, 1000);
     
 }
+function searchsubmit(){
+    var searchtxt = $("#search").val();
+    window.location.href = window.location.origin + "/search.html?query=" + searchtxt;
+}
 
 showTime();
+$(".search-form").submit(function(e) {
+    e.preventDefault();
+});
