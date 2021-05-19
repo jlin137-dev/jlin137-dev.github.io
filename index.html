@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Find My Charity</title>
-    <meta name="description" content="Look up charities with the click of a button! Discover charities, support charities and learn how you can help!">
-    <link rel="icon" type="image/png" sizes="59x59" href="assets/img/circle-cropped.png">
-    <link rel="icon" type="image/png" sizes="59x59" href="assets/img/circle-cropped.png">
-    <link rel="icon" type="image/png" sizes="59x59" href="assets/img/circle-cropped.png">
-    <link rel="icon" type="image/png" sizes="59x59" href="assets/img/circle-cropped.png">
-    <link rel="icon" type="image/png" sizes="59x59" href="assets/img/circle-cropped.png">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
-<!-- Global site tag (gtag.js) - Google Analytics -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>Find My Charity</title><meta name="description" content="Look up charities with the click of a button! Discover charities, support charities and learn how you can help!"><link rel="icon" type="image/png" sizes="59x59" href="assets/img/circle-cropped.png"><link rel="icon" type="image/png" sizes="59x59" href="assets/img/circle-cropped.png"><link rel="icon" type="image/png" sizes="59x59" href="assets/img/circle-cropped.png"><link rel="icon" type="image/png" sizes="59x59" href="assets/img/circle-cropped.png"><link rel="icon" type="image/png" sizes="59x59" href="assets/img/circle-cropped.png"><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="assets/fonts/font-awesome.min.css"><link rel="stylesheet" href="assets/css/styles.min.css"><!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFL9KMQYBG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -24,25 +8,12 @@
   gtag('config', 'G-RFL9KMQYBG');
 </script>
 <meta name=”keywords” content=”find my charity, Find my charity, charity, charity near me, charity searcher, https://jlin137-dev.github.io/, charities, help finding charities, what charities to donate to, how to donate to charity, charities near me, locate charity, located charities” />
-</head>
-
-<body>
-    <nav class="navbar navbar-light navbar-expand-md" style="z-index:1;">
-        <div class="container-fluid"><a class="navbar-brand" href="https://jlin137-dev.github.io/"><img id="logo" src="assets/img/logo.png"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="charaties.html">Charities</a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item active"><a class="nav-link" href="about_us.html">About us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav><main>
+</head><body><nav class="navbar navbar-light navbar-expand-md" style="z-index:1;"><div class="container-fluid"><a class="navbar-brand" href="https://jlin137-dev.github.io/"><img id="logo" src="assets/img/logo.png"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navcol-1"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="charaties.html">Charities</a></li><li class="nav-item"></li><li class="nav-item active"><a class="nav-link" href="about_us.html">About us</a></li></ul></div></div></nav><main>
 	<div class="container">
 		<h1 class="title">Find My Charity</h1>
 		<div class="search-box" style="margin-top: 100px;">
 			<div class="search-icon"><i class="fa fa-search search-icon"></i></div>
-			<form class="search-form" onsubmit="searchsubmit();">
+			<form class="search-form" onsubmit="searchsubmit();" id="searchForm">
 				<input type="text" placeholder="Search" id="search" autocomplete="off">
 			</form>
 			<svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
@@ -88,12 +59,7 @@
                 document.querySelector("#search").value = selection;
                 // Console log autoComplete data feedback
                 console.log(selection);
+                searchsubmit();
         },
         });
-    </script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
-</body>
-
-</html>
+    </script><script src="assets/js/jquery.min.js"></script><script src="assets/bootstrap/js/bootstrap.min.js"></script><script src="assets/js/script.min.js"></script></body></html>
