@@ -53,7 +53,10 @@
                 </ul>
             </div>
         </div>
-    </nav><script>
+    </nav><div id="MyClockDisplay" class="clock" onload="showTime()"></div><div class="container" style="margin-top: 15vh;">
+    <h1 class="text-center" id="searchterm">Loren Ipsum</h1>
+    <p class="text-center" id="description">Description</p>
+</div><script>
     const urlParams = new URLSearchParams(window.location.search);
     const querystring = urlParams.get("query");
     document.getElementById("search").setAttribute("value",querystring);
@@ -74,11 +77,10 @@
 						var dataText = rawFile.responseText;
 						//console.log(dataText);
 						var data = JSON.parse(dataText);
-						console.log("list is " + data.length + " long");
 						for (i = 0; i < data.length; i++) {
-							console.log(data[i].name);
 							if (data[i].name == querystring){
-								console.log("john is " + data[i].age + " years old");
+								console.log(data[i].description);
+                                document.getElementById("description").innerHTML = data[i].description;
 							}
 						}
 						
@@ -88,10 +90,9 @@
 			rawFile.send(null);
 		}
 		readFile("assets/js/data.json");
-</script><div id="MyClockDisplay" class="clock" onload="showTime()"></div><div style="position: absolute; top:30%; margin-left: 10%; margin-right: 10%;">
-    <h1 class="center" id="searchterm">Loren Ipsum</h1>
-    <p class="center" style="position: absolute; left: 78vh; top:10vh;" >Description</p>
-</div>
+</script><script>
+    document.getElementById("searchterm").innerHTML = querystring;
+</script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/script.min.js"></script>

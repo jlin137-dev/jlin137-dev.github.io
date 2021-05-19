@@ -28,7 +28,7 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md" style="z-index:1;">
-        <div class="container-fluid"><a class="navbar-brand" href="#"><img id="logo" src="assets/img/logo.png"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand" href="https://jlin137-dev.github.io/"><img id="logo" src="assets/img/logo.png"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" href="charaties.html">Charities</a></li>
@@ -76,7 +76,19 @@
                 highlight: {
                     render: true
                 }
-            }
+            },
+            trigger: {
+                event: ["input","focus"],
+            },
+            onSelection: (feedback) => {
+                const selection = feedback.selection.value;
+                // Render selected choice to selection div
+                document.querySelector(".autoComplete_result").innerHTML = selection;
+                // Replace Input value with the selected value
+                document.querySelector("#search").value = selection;
+                // Console log autoComplete data feedback
+                console.log(selection);
+        },
         });
     </script>
     <script src="assets/js/jquery.min.js"></script>
