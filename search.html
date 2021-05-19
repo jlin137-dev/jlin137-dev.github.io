@@ -57,6 +57,36 @@
     const urlParams = new URLSearchParams(window.location.search);
     const querystring = urlParams.get("query");
     document.getElementById("search").setAttribute("value",querystring);
+    
+    //read file
+    
+    function readFile(file)
+		{
+			var rawFile = new XMLHttpRequest();
+			rawFile.open("GET", file, false);
+			rawFile.onreadystatechange = function ()
+			{
+				if(rawFile.readyState === 4)
+				{
+					if(rawFile.status === 200 || rawFile.status == 0)
+					{
+						var dataText = rawFile.responseText;
+						//console.log(dataText);
+						var data = JSON.parse(dataText);
+						console.log("list is " + data.length + " long");
+						for (i = 0; i < data.length; i++) {
+							console.log(data[i].name);
+							if (data[i].name == querystring){
+								console.log("john is " + data[i].age + " years old");
+							}
+						}
+						
+					}
+				}
+			}
+			rawFile.send(null);
+		}
+		readFile("assets/js/data.json");
 </script><div id="MyClockDisplay" class="clock" onload="showTime()"></div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
