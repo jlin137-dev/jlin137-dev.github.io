@@ -58,6 +58,7 @@
     const querystring = urlParams.get("query");
     document.getElementById("search").setAttribute("value",querystring);
     
+    document.getElementById("search").textContent = querystring;
     //read file
     
     function readFile(file)
@@ -87,7 +88,10 @@
 			rawFile.send(null);
 		}
 		readFile("assets/js/data.json");
-</script><div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+</script><div id="MyClockDisplay" class="clock" onload="showTime()"></div><div style="position: absolute; top:30%; margin-left: 10%; margin-right: 10%;">
+    <h1 class="center" id="searchterm">Loren Ipsum</h1>
+    <p class="center" style="position: absolute; left: 78vh; top:10vh;" >Description</p>
+</div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/script.min.js"></script>

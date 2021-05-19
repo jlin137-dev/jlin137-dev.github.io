@@ -54,7 +54,31 @@
 		</div>
 
 	</div>
-</main><div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+</main><div id="MyClockDisplay" class="clock" onload="showTime()"></div><script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@9.1.1/dist/js/autoComplete.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@9.1.1/dist/css/autoComplete.min.css">
+    <script>
+        new autoComplete({
+            selector: "#search",
+            placeHolder: "Search",
+            data: {
+                src: ["Jimmy","Harry","Byron"]
+            },
+            resultsList: {
+                noResults: (list, query) => {
+                    const message = document.createElement("div");
+                    message.setAttribute("class", "no_result");
+                    message.innerHTML = `<span style="display: flex; align-items: center; font-weight: 100; color: #ff9292; margin: 10px;">Found No Results for "${query}"</span>`;
+                    list.appendChild(message);
+                    
+                },
+            },
+            resultItem: {
+                highlight: {
+                    render: true
+                }
+            }
+        });
+    </script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/script.min.js"></script>
