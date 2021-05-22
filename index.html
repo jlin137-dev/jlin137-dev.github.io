@@ -25,7 +25,7 @@
 		</div>
 
 	</div>
-</main><div id="MyClockDisplay" class="clock" onload="showTime()"></div><script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@9.1.1/dist/js/autoComplete.min.js"></script>
+</main><h1 style="position: absolute; z-index: 1; top:55vh;" class="center">We have indexed <span id="indexed">...</span> charaties!</h1><div id="MyClockDisplay" class="clock" onload="showTime()"></div><script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@9.1.1/dist/js/autoComplete.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@9.1.1/dist/css/autoComplete.min.css">
     <script>
         new autoComplete({
@@ -62,4 +62,25 @@
                 searchsubmit();
         },
         });
-    </script><script src="assets/js/jquery.min.js"></script><script src="assets/bootstrap/js/bootstrap.min.js"></script><script src="assets/js/script.min.js"></script></body></html>
+    </script><script>
+function readFile(file)
+		{
+			var rawFile = new XMLHttpRequest();
+			rawFile.open("GET", file, false);
+			rawFile.onreadystatechange = function ()
+			{
+				if(rawFile.readyState === 4)
+				{
+					if(rawFile.status === 200 || rawFile.status == 0)
+					{
+						var dataText = rawFile.responseText;
+						//console.log(dataText);
+						var data = JSON.parse(dataText);
+                        document.getElementById("indexed").innerHTML = data.length;
+					}
+				}			
+			}
+            rawFile.send(null);
+		}
+		readFile("assets/js/data.json");
+</script><script src="assets/js/jquery.min.js"></script><script src="assets/bootstrap/js/bootstrap.min.js"></script><script src="assets/js/script.min.js"></script></body></html>
