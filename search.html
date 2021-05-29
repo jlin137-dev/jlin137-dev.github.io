@@ -8,7 +8,16 @@
   gtag('config', 'G-RFL9KMQYBG');
 </script>
 <meta name=”keywords” content=”find my charity, Find my charity, charity, charity near me, charity searcher, https://jlin137-dev.github.io/, charities, help finding charities, what charities to donate to, how to donate to charity, charities near me, locate charity, located charities” />
-</head><body><main>
+</head><body><style>
+    #map {
+        margin-top: -750px;
+        height: 60vh;
+        width: 30vw;
+        position: relative;
+        margin-left: 750px;
+        }
+</style>
+<main>
     <div class="container">
 		<div class="search-box" style="margin-top: 100px;">
 			<div class="search-icon"><i class="fa fa-search search-icon"></i></div>
@@ -106,4 +115,89 @@
                 searchsubmit();
         },
         });
-    </script><script src="assets/js/jquery.min.js"></script><script src="assets/bootstrap/js/bootstrap.min.js"></script><script src="assets/js/script.min.js"></script></body></html>
+    </script><script src="https://apps.elfsight.com/p/platform.js" defer></script>
+	<div class="elfsight-app-ebf072e3-2844-4aac-a9a3-7e8315a70f4d" style="margin-top:35vh;"></div><div class="container">
+    <div class="row">
+        <div class="col">
+            <input class="form-control" id="searchloc" type="text" style="position:relative;left:750px;top:-150px;height:3vh; width:30vw;" placeholder="Search..."/>
+        </div>
+    </div>
+            
+    <div class="row">
+        <div class="col">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+<script>
+                var map;
+
+function initMap() {
+    // Create map
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 153.0260, lng: 27.4705},
+        zoom: 8
+    });
+
+    // Reset the value of the search box
+    document.getElementById('searchloc').value = 'red cross';
+
+    var input = document.getElementById('searchloc');
+
+    
+
+    // Create new searchbox constructor
+    var searchName = new google.maps.places.SearchBox(input);
+
+    // Set search to stay within bounds first
+    map.addListener('bounds_changed', function() {
+        searchName.setBounds(map.getBounds());
+    })
+
+    // Array to hold search options
+    var markers = [];
+
+    // When user selects prediction from list
+    searchName.addListener('places_changed', function() {
+        
+        // Var to get places
+        var places = searchName.getPlaces();
+        // If no places then just return (do nothing)
+        if (places.length === 0) {
+            return;
+        }
+
+        // Clear previous markers
+        markers.forEach(function (m) { m.setMap(null); });
+
+        // Reset markers array
+        markers = [];
+
+        // bounds object
+        var bounds = new google.maps.LatLngBounds();
+
+        places.forEach(function (p) {
+            // If no data then just return (do nothing)
+            if (!p.geometry) {
+                return;
+            }
+
+            // push marker with data
+            markers.push(new google.maps.Marker({
+                map: map,
+                title: p.title,
+                position: p.geometry.location
+            }));
+
+            if (p.geometry.viewport) {
+                bounds.union(p.geometry.viewport);
+            } else {
+                bounds.extend(p.geometry.location);
+            }
+        });
+        map.fitBounds(bounds);
+    });
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXFAxSgXP7b5D25WEtjxkYqoWM2PjxaLg&callback=initMap&libraries=places"async defer></script><script src="assets/js/jquery.min.js"></script><script src="assets/bootstrap/js/bootstrap.min.js"></script><script src="assets/js/script.min.js"></script></body></html>
